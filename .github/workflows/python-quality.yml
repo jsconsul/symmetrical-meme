@@ -4,11 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - '**.py'
-      - '.github/workflows/python-quality.yml'
-      - 'pyproject.toml'
-      - 'requirements*.txt'
 
 jobs:
   quality-checks:
