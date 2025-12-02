@@ -49,7 +49,7 @@ jobs:
 
       - name: Dependency audit (pip-audit)
         run: |
-          pip-audit --strict || true
+          pip-audit -f sarif -o pip-audit.sarif --strict || true
 
       - name: Dependency scan (Safety)
         run: |
