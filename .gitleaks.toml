@@ -4,6 +4,5 @@ title = "Gitleaks Config"
   description = "Allowed false positives and excluded paths"
   paths = [
     "README.md",
-    "notebooks/",
-    "src/"
+    "notebooks/"
   ]
