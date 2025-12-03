@@ -55,4 +55,5 @@ jobs:
 
       - name: Dependency scan (Safety)
         run: |
-          safety check --full-report || true
+          # Safety v3 deprecates `check`; use `scan` instead
+          safety scan --full-report || true
