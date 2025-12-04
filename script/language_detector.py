@@ -53,12 +53,7 @@ def main():
         if record_id is None:
             continue
 
-        update_response = (
-            supabase.table("post_content")
-            .update({"language": lang})
-            .eq("id", record_id)
-            .execute()
-        )
+        update_response = supabase.table("post_content").update({"language": lang}).eq("id", record_id).execute()
         update_results.append(
             {
                 "id": record_id,
@@ -75,3 +70,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
