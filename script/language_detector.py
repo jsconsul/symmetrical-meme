@@ -19,7 +19,8 @@ if not SUPABASE_KEY:
 
 # Initialize Supabase client
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-
+
+
 def main():
     print("Supabase client initialized.")
 
@@ -43,15 +44,18 @@ def main():
         detected_languages.append(lang)
 
     print("Detected languages:")
-    print(detected_languages)
+    print(detected_languages)
     print("\n--- Updating records ---")
     update_results = []
     for record, lang in zip(data, detected_languages):
         record_id = record.get("id")
         if record_id is None:
-            continue
+            continue
         update_response = (
-            supabase.table("post_content").update({"language": lang}).eq("id", record_id).execute()
+            supabase.table("post_content")
+            .update({"language": lang})
+            .eq("id", record_id)
+            .execute()
         )
         update_results.append(
             {
@@ -60,10 +64,11 @@ def main():
                 "status": "success",
                 "response_data": getattr(update_response, "data", None),
             }
-        )
+        )
     print("Update process complete.")
     for result in update_results:
         print(result)
+
 
 if __name__ == "__main__":
     main()
